@@ -1,216 +1,396 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bharatadarshana – India’s Strength & Truth</title>
-  <meta name="description" content="Bharatadarshana showcases India’s geopolitical rise, booming economy under Modi, and debunks anti-national narratives." />
-  <meta name="keywords" content="India, geopolitics, economy, Modi, Bharatadarshana, India-Pakistan, national security, anti-national narratives" />
-  <meta name="author" content="Bharatadarshana Team" />
+  <title>Bharatadarshana - India’s Strength & Truth</title>
+  <meta name="description" content="Showcasing India’s geopolitical rise, economic growth under Modi, and exposing anti-national narratives." />
+  <style>
+    /* === Reset & base === */
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fdfaf6; color: #222; line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a { color: #e65100; text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
-  <!-- Open Graph / Social -->
-  <meta property="og:type"        content="website" />
-  <meta property="og:title"       content="Bharatadarshana – India’s Strength & Truth" />
-  <meta property="og:description" content="Explore India’s global influence, economic growth under Modi & uncover anti-national narratives." />
-  <meta property="og:url"         content="https://yourdomain.com/" />
-  <meta property="og:image"       content="https://yourdomain.com/assets/og-image.jpg" />
+    /* === Container === */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1rem 1.5rem;
+    }
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image" />
-  <meta name="twitter:site"        content="@YourTwitterHandle" />
-  <meta name="twitter:title"       content="Bharatadarshana – India’s Strength & Truth" />
-  <meta name="twitter:description" content="Explore India’s global influence, economic growth under Modi & uncover anti-national narratives." />
-  <meta name="twitter:image"       content="https://yourdomain.com/assets/twitter-image.jpg" />
+    /* === Header === */
+    header {
+      position: sticky;
+      top: 0; left: 0; right: 0;
+      background: #004d40; color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+    header.shrink {
+      background-color: #00332e;
+      padding: 0.5rem 1.5rem;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      user-select: none;
+      cursor: default;
+    }
+    nav {
+      display: flex;
+      gap: 1.2rem;
+    }
+    nav a {
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.3rem 0.5rem;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0%;
+      height: 2px;
+      background: #e65100;
+      transition: width 0.3s ease;
+    }
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
 
-  <!-- Favicon -->
-  <link rel="icon" href="https://yourdomain.com/favicon.ico" />
+    /* === Hero Section === */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=960&q=80') center center/cover no-repeat;
+      color: white;
+      padding: 5rem 1.5rem 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 77, 64, 0.7);
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: 3px;
+      font-weight: 900;
+      text-shadow: 0 0 8px rgba(0,0,0,0.7);
+    }
+    .hero p {
+      font-size: 1.3rem;
+      font-weight: 500;
+      text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
 
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Bharatadarshana",
-    "url": "https://yourdomain.com/",
-    "description": "Showcasing India's strength, economy, and truth.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Bharatadarshana Team",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://yourdomain.com/assets/logo.png"
+    /* === Sections === */
+    section {
+      margin: 3rem 0;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    h2 {
+      border-left: 5px solid #e65100;
+      padding-left: 0.75rem;
+      color: #004d40;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      letter-spacing: 1.5px;
+    }
+    p, li {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    /* === Article Cards === */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 16px rgb(0 0 0 / 0.15);
+    }
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .card-body {
+      padding: 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-body h3 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+      color: #004d40;
+      font-weight: 700;
+    }
+    .card-body p {
+      flex-grow: 1;
+      color: #555;
+      font-weight: 400;
+    }
+
+    /* === Video Embed Container === */
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      margin: 2rem 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgb(0 0 0 / 0.1);
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+      border-radius: 10px;
+    }
+
+    /* === Social Feeds === */
+    .social-feed {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+    .social-feed > blockquote {
+      max-width: 350px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
+      background: white;
+      padding: 1rem;
+    }
+
+    /* === Footer === */
+    footer {
+      background: #004d40;
+      color: white;
+      text-align: center;
+      padding: 1.2rem 1.5rem;
+      margin-top: 4rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+    }
+
+    /* === Responsive Nav Toggle (mobile) === */
+    @media (max-width: 600px) {
+      nav {
+        gap: 0.8rem;
+      }
+      header {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .logo {
+        flex-basis: 100%;
+        text-align: center;
+        margin-bottom: 0.5rem;
       }
     }
-  }
-  </script>
-
-  <!-- CSS -->
-  <style>
-    /* Reset & base */
-    * { margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif; }
-    body { background:#fff; color:#111; line-height:1.6; }
-    a { color:#ff5722; transition:color .3s; } a:hover { color:#e64a19 }
-    header { position:fixed; top:0; width:100%; background:#004d40; color:#fff;
-      display:flex; justify-content:space-between; align-items:center;
-      padding:1rem 2rem; box-shadow:0 2px 8px rgba(0,0,0,.2); z-index:1000; }
-    .logo { font-size:1.5rem; font-weight:bold; letter-spacing:2px; }
-    nav { display:flex; gap:1.5rem }
-    nav button { background:none; border:none; color:#fff; cursor:pointer;
-      font-size:1rem; position:relative; padding:.5rem 0; }
-    nav button::after { content:''; position:absolute; bottom:0; left:0; width:0;
-      height:2px; background:#ff5722; transition:width .3s; }
-    nav button:hover::after, nav button.active::after { width:100% }
-
-    main { padding:6rem 2rem 4rem; max-width:960px; margin:0 auto; min-height:80vh;
-      opacity:1; transition:opacity .5s; }
-    section { margin-bottom:3rem; opacity:0; transform:translateY(30px);
-      animation:fadeInUp .8s ease forwards; }
-    section.visible { opacity:1; transform:translateY(0) }
-    h1 { font-size:2.5rem; color:#004d40; margin-bottom:.5rem; letter-spacing:1.5px }
-    h2 { font-size:1.8rem; color:#004d40; margin-top:1.5rem;
-      border-left:4px solid #ff5722; padding-left:.8rem }
-    p { margin-bottom:1rem; font-size:1.1rem; color:#333 }
-    .video-container { position:relative; padding-bottom:56.25%; height:0; overflow:hidden;
-      margin:1rem 0; border-radius:8px; box-shadow:0 4px 8px rgba(0,0,0,.1); }
-    .video-container iframe { position:absolute; top:0; left:0; width:100%; height:100%;
-      border:none; border-radius:8px; }
-
-    .social-feed { display:flex; flex-wrap:wrap; gap:1rem; justify-content:center }
-    .social-post { background:#fafafa; border:1px solid #ddd; border-radius:8px;
-      padding:1rem; width:300px; box-shadow:0 2px 6px rgba(0,0,0,.1);
-      transition:transform .3s; }
-    .social-post:hover { transform:scale(1.05) }
-
-    .blog-list article { border-bottom:1px solid #ddd; padding-bottom:1rem; margin-bottom:1rem }
-    .blog-list article:last-child { border:none; margin:0; padding:0 }
-    .blog-list h3 { color:#004d40; margin-bottom:.4rem; cursor:pointer; }
-    .blog-list p { color:#555; font-size:1rem }
-
-    footer { background:#004d40; color:#fff; text-align:center; padding:1rem 0;
-      margin-top:4rem; font-size:.9rem; letter-spacing:1px }
-    @keyframes fadeInUp { to { opacity:1; transform:translateY(0) } }
   </style>
 
-  <!-- Twitter & Instagram Embed Scripts -->
+  <!-- Twitter Widget -->
   <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <script async src="//www.instagram.com/embed.js"></script>
+  <!-- Instagram Embed -->
+  <script async defer src="//www.instagram.com/embed.js"></script>
 </head>
 <body>
 
-  <header>
-    <div class="logo">Bharatadarshana</div>
+  <header id="page-header">
+    <div class="logo">BHARATADARSHANA</div>
     <nav>
-      <button data-section="home" class="active">Home</button>
-      <button data-section="geopolitics">Geopolitics</button>
-      <button data-section="economy">Economy</button>
-      <button data-section="conflicts">Conflicts</button>
-      <button data-section="blogs">Blogs</button>
+      <a href="#home" class="active">Home</a>
+      <a href="#geopolitics">Geopolitics</a>
+      <a href="#economy">Economy</a>
+      <a href="#conflicts">Conflicts</a>
+      <a href="#blogs">Blogs</a>
     </nav>
   </header>
 
-  <main>
-    <!-- Home -->
-    <section id="home" class="visible">
-      <h1>Welcome to Bharatadarshana</h1>
-      <p>Your window to India’s strength, global influence, and truth.</p>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/2-SrPZ0UHPc" allowfullscreen></iframe>
+  <main class="container">
+    <!-- Home / Hero -->
+    <section id="home" class="visible" style="margin-top: 3rem;">
+      <div class="hero">
+        <div class="hero-content">
+          <h1>India’s Strength & Global Vision</h1>
+          <p>Showcasing the rise of Bharat in geopolitics, economy, and truth.</p>
+        </div>
+      </div>
+      <div class="video-container" style="margin-top: 2rem;">
+        <iframe src="https://www.youtube.com/embed/2-SrPZ0UHPc" allowfullscreen title="Intro Video"></iframe>
       </div>
     </section>
 
     <!-- Geopolitics -->
-    <section id="geopolitics" style="display:none">
+    <section id="geopolitics">
       <h2>India’s Global Influence</h2>
-      <p>India is asserting itself as a global powerhouse with strategic diplomacy and defense partnerships.</p>
+      <p>India asserts itself as a global power through strategic diplomacy and partnerships.</p>
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/oP3l_p-SV7g" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/oP3l_p-SV7g" allowfullscreen title="Geopolitics Video"></iframe>
       </div>
-      <h2>Latest Tweets</h2>
+
+      <h3>Latest Tweets</h3>
       <div class="social-feed">
-        <!-- Twitter Embedded Tweet -->
-        <blockquote class="twitter-tweet">
+        <blockquote class="twitter-tweet" data-lang="en">
           <p lang="en" dir="ltr">India strengthens ties with key nations, enhancing regional stability. #BharatGlobal</p>&mdash; IndiaDiplomacy (@IndiaDiplomacy) <a href="https://twitter.com/IndiaDiplomacy/status/1">Jan 1, 2025</a>
         </blockquote>
-        <blockquote class="twitter-tweet">
-          <p lang="en" dir="ltr">Modi government’s foreign policy making waves globally. #MakeInIndia</p>&mdash; GeopoliticsWatch (@GeopoliticsWatch) <a href="https://twitter.com/GeopoliticsWatch/status/2">Feb 15, 2025</a>
+        <blockquote class="twitter-tweet" data-lang="en">
+          <p lang="en" dir="ltr">Modi government’s foreign policy making waves globally. #MakeInIndia</p>&mdash; ModiUpdates (@ModiUpdates) <a href="https://twitter.com/ModiUpdates/status/2">Feb 15, 2025</a>
         </blockquote>
       </div>
     </section>
 
     <!-- Economy -->
-    <section id="economy" style="display:none">
-      <h2>India’s Growing Economy</h2>
-      <p>Under Modi, India’s economy is soaring—manufacturing, digitalization & infrastructure lead the way.</p>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/mB6SkOt2JoE" allowfullscreen></iframe>
-      </div>
-      <h2>Instagram Highlights</h2>
-      <div class="social-feed">
-        <!-- Instagram Embedded Post -->
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/ABC123/" data-instgrm-version="14"></blockquote>
-        <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/XYZ789/" data-instgrm-version="14"></blockquote>
+    <section id="economy">
+      <h2>Economic Growth Under Modi</h2>
+      <p>India’s economy is booming with reforms, startups, and Make in India initiatives.</p>
+      <div class="card-grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80" alt="Startup India" />
+          <div class="card-body">
+            <h3>Startup India Revolution</h3>
+            <p>How startups are transforming the Indian economy and creating jobs.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=400&q=80" alt="Make in India" />
+          <div class="card-body">
+            <h3>Make in India Initiative</h3>
+            <p>The impact of Make in India on manufacturing and exports.</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <!-- Conflicts -->
-    <section id="conflicts" style="display:none">
-      <h2>India-Pakistan Conflicts & Turkey’s Role</h2>
-      <p>Dive into the history and modern dynamics of India-Pakistan tensions, plus Turkey’s support for Pakistan.</p>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/RMR7R9iTWZU" allowfullscreen></iframe>
+    <!-- Conflicts & Security -->
+    <section id="conflicts">
+      <h2>India-Pakistan Conflicts & Anti-National Narratives</h2>
+      <p>Analyzing ongoing conflicts, political betrayals, and foreign support for Pakistan.</p>
+      <div class="card-grid">
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1486308510493-cb65b5af7b99?auto=format&fit=crop&w=400&q=80" alt="India-Pakistan Conflict" />
+          <div class="card-body">
+            <h3>India-Pakistan Relations</h3>
+            <p>History and current status of conflicts and peace talks.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Turkey-Pakistan Support" />
+          <div class="card-body">
+            <h3>Turkey’s Support for Pakistan</h3>
+            <p>Examining Turkey’s strategic ties with Pakistan and implications for India.</p>
+          </div>
+        </article>
       </div>
-      <h2>Key Articles</h2>
-      <ul>
-        <li><a href="#">The Betrayal by Political Parties Undermining National Interests</a></li>
-        <li><a href="#">Turkey’s Strategic Interests in South Asia</a></li>
-        <li><a href="#">India’s Defense Strategy: A Comprehensive Review</a></li>
-      </ul>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/JKVcpEFlj80" allowfullscreen title="Conflicts Explained"></iframe>
+      </div>
     </section>
 
     <!-- Blogs -->
-    <section id="blogs" style="display:none">
-      <h2>Blogs</h2>
-      <div class="blog-list">
-        <article>
-          <h3>India’s Geopolitical Rise under Modi</h3>
-          <p>In-depth analysis of how India's foreign policy has evolved since 2014.</p>
-        </article>
-        <article>
-          <h3>Economic Reforms & Growth Trajectory</h3>
-          <p>Key reforms driving India’s economic resurgence.</p>
-        </article>
-        <article>
-          <h3>Unmasking Anti-National Narratives</h3>
-          <p>How certain factions attempt to destabilize India’s unity and growth.</p>
-        </article>
-      </div>
+    <section id="blogs">
+      <h2>Featured Blogs & Opinions</h2>
+      <article class="card" style="max-width: 700px; margin-bottom: 2rem;">
+        <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=800&q=80" alt="Blog Post" />
+        <div class="card-body">
+          <h3>The Modi Government’s Economic Impact</h3>
+          <p>An in-depth look at how recent reforms have changed India’s economic landscape.</p>
+          <a href="#">Read More →</a>
+        </div>
+      </article>
+      <article class="card" style="max-width: 700px; margin-bottom: 2rem;">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Blog Post" />
+        <div class="card-body">
+          <h3>Exposing Anti-National Narratives</h3>
+          <p>Understanding how misinformation impacts national unity and how to counter it.</p>
+          <a href="#">Read More →</a>
+        </div>
+      </article>
     </section>
+
   </main>
 
   <footer>
-    &copy; 2025 Bharatadarshana · All Rights Reserved
+    &copy; 2025 Bharatadarshana | Proudly showcasing India’s strength
   </footer>
 
-  <!-- Navigation & Transitions -->
   <script>
-    const buttons = document.querySelectorAll('nav button');
-    const sections = document.querySelectorAll('main section');
+    // Header shrink on scroll
+    const header = document.getElementById('page-header');
+    window.addEventListener('scroll', () => {
+      if(window.scrollY > 80){
+        header.classList.add('shrink');
+      } else {
+        header.classList.remove('shrink');
+      }
+    });
 
-    buttons.forEach(btn => btn.addEventListener('click', () => {
-      if (btn.classList.contains('active')) return;
-      document.querySelector('nav button.active').classList.remove('active');
-      btn.classList.add('active');
+    // Scroll-triggered fade-in animations for sections
+    const sections = document.querySelectorAll('section');
+    const revealOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.9;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if(sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    };
 
-      const current = document.querySelector('main section.visible');
-      current.classList.remove('visible');
-      setTimeout(() => {
-        current.style.display = 'none';
-        const target = document.getElementById(btn.dataset.section);
-        target.style.display = 'block';
-        setTimeout(()=> target.classList.add('visible'), 50);
-      }, 300);
-    }));
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
   </script>
+
 </body>
 </html>
