@@ -6,6 +6,7 @@
 <title>Bharatadarshana</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
 <style>
+  /* Basic page styling */
   body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -13,6 +14,7 @@
     color: #333;
     overflow-x: hidden;
   }
+  /* Navigation bar style */
   nav {
     position: sticky;
     top: 0;
@@ -38,6 +40,7 @@
   nav a:hover {
     background-color: #e6f0ff;
   }
+  /* Hero section styling */
   .hero {
     height: 100vh;
     background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
@@ -57,6 +60,7 @@
     from {opacity: 0; transform: translateY(30px);}
     to {opacity: 1; transform: translateY(0);}
   }
+  /* Blog section styling */
   .blog-section {
     padding: 40px 20px;
     text-align: center;
@@ -66,17 +70,17 @@
   .blog-section h2 {
     margin-bottom: 20px;
   }
+  /* Slider container style */
   .slider-container {
     overflow: hidden;
     position: relative;
-    max-width: 1000px;
-    margin: 0 auto 40px auto;
   }
   .slider-track {
     display: flex;
     transition: transform 0.4s ease;
     will-change: transform;
   }
+  /* Each card styling */
   .card {
     min-width: 280px;
     max-width: 280px;
@@ -91,8 +95,8 @@
     perspective: 1000px;
     transform-style: preserve-3d;
     transition: transform 0.3s ease;
-    text-decoration: none;
-    color: inherit;
+    display: flex;
+    flex-direction: column;
   }
   .card img {
     width: 100%;
@@ -102,6 +106,27 @@
   .card h3 {
     padding: 10px;
     margin: 0;
+    color: #0b3d91;
+  }
+  .card p {
+    padding: 0 10px 10px;
+    font-size: 14px;
+    color: #555;
+    flex-grow: 1;
+  }
+  .read-more {
+    display: block;
+    padding: 10px;
+    background-color: #0b3d91;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .read-more:hover {
+    background-color: #06427a;
   }
   .card:active {
     cursor: grabbing;
@@ -109,40 +134,24 @@
   .card.tilt {
     transform: rotateY(var(--tilt-angle, 0deg)) translateZ(20px);
   }
-  .topic-section {
-    padding: 20px;
-    margin: 40px auto;
-    max-width: 800px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fafafa;
-    box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  }
-  .topic-section h3 {
-    color: #0b3d91;
-  }
-  .topic-section p {
-    line-height: 1.5;
-  }
-  .source-link {
-    font-size: 0.9em;
-    color: #138808;
-  }
-  /* Social media embed container */
-  .social-embed {
-    margin: 30px auto;
-    max-width: 600px;
-  }
+  /* Footer styling */
   footer {
     background-color: #138808;
     color: white;
     text-align: center;
     padding: 10px;
   }
+  /* Social media embed container */
+  .social-embed {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
 </style>
 </head>
 <body>
 
+<!-- Navigation bar -->
 <nav>
   <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="Flag" />
   <a href="#">Home</a>
@@ -150,6 +159,7 @@
   <a href="#">History</a>
 </nav>
 
+<!-- Hero section -->
 <section class="hero fade-section">
   <div class="hero-content">
     <h1>India at the Crossroads</h1>
@@ -157,73 +167,69 @@
   </div>
 </section>
 
+<!-- Blog section with cards -->
 <section class="blog-section fade-section">
   <h2>Explore Topics</h2>
   <div class="slider-container" id="slider">
     <div class="slider-track" id="sliderTrack">
-      <a href="#india-pak-war" class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/India-Pakistan_conflicts_map.svg/400px-India-Pakistan_conflicts_map.svg.png" alt="India-Pakistan War" />
-        <h3>India-Pakistan Wars</h3>
-      </a>
-      <a href="#betrayal-1947" class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Mountbatten_and_Jinnah_in_1947.jpg" alt="Betrayal 1947" />
+
+      <!-- Card 1: India-Pak War -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1558199146-c3f6f3ae7765?auto=format&fit=crop&w=400&q=80" alt="India-Pak War" />
+        <h3>India-Pakistan War</h3>
+        <p>The multiple wars between India and Pakistan have roots in partition conflicts and territorial disputes. The wars have shaped South Asia's geopolitics for decades.</p>
+        <a href="https://en.wikipedia.org/wiki/Indo-Pakistani_Wars_and_Conflicts" target="_blank" class="read-more">Read more</a>
+      </div>
+
+      <!-- Card 2: Betrayal in 1947 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=400&q=80" alt="1947 Betrayal" />
         <h3>Who Betrayed India in 1947?</h3>
-      </a>
-      <a href="#war-reasons" class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Kashmir_disputed_area.svg/400px-Kashmir_disputed_area.svg.png" alt="Why War Started" />
-        <h3>Why the War Started</h3>
-      </a>
-      <a href="#pak-supporters" class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/79/Map_showing_Pakistan_and_its_supporters.svg" alt="Pakistan Supporters" />
+        <p>Controversies around certain princely states and leaders who sided with Pakistan during partition continue to fuel debates about betrayal in 1947.</p>
+        <a href="https://en.wikipedia.org/wiki/Partition_of_India" target="_blank" class="read-more">Read more</a>
+      </div>
+
+      <!-- Card 3: Why War Started -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=400&q=80" alt="Why War Started" />
+        <h3>Why Did the War Start?</h3>
+        <p>The initial spark was the princely state of Jammu & Kashmir's accession dispute, compounded by religious and political tensions post partition.</p>
+        <a href="https://en.wikipedia.org/wiki/Indo-Pakistani_War_of_1947" target="_blank" class="read-more">Read more</a>
+      </div>
+
+      <!-- Card 4: Who Supports Pakistan -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1486308510493-cf553b2a24b2?auto=format&fit=crop&w=400&q=80" alt="Support to Pakistan" />
         <h3>Who Supports Pakistan?</h3>
-      </a>
-      <a href="#pak-lies" class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Media_Censorship.svg/400px-Media_Censorship.svg.png" alt="Pakistan Lies" />
-        <h3>Why Pakistan Lies So Much</h3>
-      </a>
+        <p>Pakistan has received varying levels of support from different countries and organizations, often driven by strategic interests in the region.</p>
+        <a href="https://en.wikipedia.org/wiki/Foreign_relations_of_Pakistan" target="_blank" class="read-more">Read more</a>
+      </div>
+
+      <!-- Card 5: Pakistan’s Lies -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Pakistan Lies" />
+        <h3>Why Does Pakistan Lie?</h3>
+        <p>Pakistan’s state narratives have often been criticized for misinformation and denial regarding key historical and geopolitical issues.</p>
+        <a href="https://en.wikipedia.org/wiki/Propaganda_in_Pakistan" target="_blank" class="read-more">Read more</a>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Topic Sections with explanation and credible source links -->
-<section class="topic-section" id="india-pak-war">
-  <h3>India-Pakistan Wars</h3>
-  <p>The history between India and Pakistan has been marked by multiple wars, primarily over the Kashmir region, starting in 1947-48, followed by conflicts in 1965, 1971, and the Kargil War in 1999.</p>
-  <p class="source-link">Source: <a href="https://en.wikipedia.org/wiki/Indo-Pakistani_wars_and_conflicts" target="_blank" rel="noopener noreferrer">Wikipedia - Indo-Pakistani wars and conflicts</a></p>
-</section>
-
-<section class="topic-section" id="betrayal-1947">
-  <h3>Who Betrayed India in 1947?</h3>
-  <p>The partition of India in 1947 led to immense turmoil. The hurried and poorly planned partition by the British, combined with leaders like Muhammad Ali Jinnah pushing for Pakistan, is seen by many as a betrayal that led to mass displacement and violence.</p>
-  <p class="source-link">Source: <a href="https://www.britannica.com/event/Partition-of-India" target="_blank" rel="noopener noreferrer">Britannica - Partition of India</a></p>
-</section>
-
-<section class="topic-section" id="war-reasons">
-  <h3>Why the War Started Between India and Pakistan?</h3>
-  <p>The wars primarily started due to the dispute over Kashmir, a princely state with a Muslim majority but ruled by a Hindu king at the time of independence, which led to conflicting claims and military action from both sides.</p>
-  <p class="source-link">Source: <a href="https://www.cfr.org/backgrounder/india-pakistan-conflict" target="_blank" rel="noopener noreferrer">Council on Foreign Relations - India-Pakistan Conflict</a></p>
-</section>
-
-<section class="topic-section" id="pak-supporters">
-  <h3>Who Supports Pakistan?</h3>
-  <p>Pakistan has historically received support from countries like China, the United States (at different periods), and Saudi Arabia, for strategic, military, and economic reasons, impacting the geopolitics of South Asia.</p>
-  <p class="source-link">Source: <a href="https://www.brookings.edu/articles/us-relations-with-pakistan-the-way-forward/" target="_blank" rel="noopener noreferrer">Brookings - US Relations with Pakistan</a></p>
-</section>
-
-<section class="topic-section" id="pak-lies">
-  <h3>Why Pakistan Lies So Much</h3>
-  <p>Pakistan's government and media have been accused by various sources of misinformation, denial of involvement in terrorism, and propaganda to influence international opinion.</p>
-  <p class="source-link">Source: <a href="https://www.dw.com/en/why-pakistan-denies-terrorism-support/a-55511163" target="_blank" rel="noopener noreferrer">DW - Why Pakistan denies terrorism support</a></p>
-</section>
-
-<!-- Simple Social Media Embed Section -->
-<section class="blog-section">
-  <h2>Featured Social Media Post</h2>
-  <!-- 
-    Replace the 'data-embed-url' value with any Twitter, Instagram, or Facebook post URL.
-    The embed script will automatically load the post preview.
-  -->
-  <div class="social-embed" id="socialEmbed" data-embed-url="https://twitter.com/ANI/status/1650999999999999999"></div>
+<!-- Social media embed section - replace URL inside iframe src to embed a new post -->
+<section class="social-embed fade-section">
+  <h2>Social Media Insights</h2>
+  <!-- Example: Twitter post embed -->
+  <iframe
+    src="https://twitframe.com/show?url=https://twitter.com/IndiaToday/status/1393465834958736384"
+    width="500"
+    height="600"
+    style="border:none;overflow:hidden;"
+    scrolling="no"
+    allowtransparency="true"
+    allow="encrypted-media"
+    title="Embedded Twitter Post"
+  ></iframe>
 </section>
 
 <footer>
@@ -231,34 +237,55 @@
 </footer>
 
 <script>
-  // Slider drag functionality (your existing code)
+  // Slider drag & tilt logic (same as original code)
   const slider = document.getElementById('slider');
   const track = document.getElementById('sliderTrack');
   const cards = track.children;
+  let pos = 0;
   let startX = 0;
   let currentTranslate = 0;
   let prevTranslate = 0;
   let dragging = false;
-  const cardWidth = cards[0].offsetWidth + 20; // card width + margin
+  let animationID = 0;
+  let currentIndex = 0;
+  const cardWidth = cards[0].offsetWidth + 20; // card + margin
 
+  // Update slider transform position
   function setSliderPosition() {
     track.style.transform = `translateX(${currentTranslate}px)`;
   }
 
+  // Limit value between min and max
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
+
+  // Event listeners for touch and mouse dragging
+  slider.addEventListener('touchstart', touchStart);
+  slider.addEventListener('touchend', touchEnd);
+  slider.addEventListener('touchmove', touchMove);
+  slider.addEventListener('mousedown', touchStart);
+  slider.addEventListener('mouseup', touchEnd);
+  slider.addEventListener('mouseleave', touchEnd);
+  slider.addEventListener('mousemove', touchMove);
+
+  // On drag start
   function touchStart(event) {
     dragging = true;
     startX = getX(event);
     prevTranslate = currentTranslate;
+    cancelAnimationFrame(animationID);
     slider.style.cursor = 'grabbing';
   }
 
+  // On dragging move
   function touchMove(event) {
     if (!dragging) return;
     const currentX = getX(event);
     const deltaX = currentX - startX;
     currentTranslate = prevTranslate + deltaX;
 
-    // tilt effect on cards while dragging
+    // Tilt effect on cards based on position
     for(let i = 0; i < cards.length; i++) {
       const cardCenter = (cardWidth * i) + cardWidth/2 + currentTranslate;
       const sliderCenter = slider.offsetWidth / 2;
@@ -272,18 +299,19 @@
     setSliderPosition();
   }
 
+  // On drag end
   function touchEnd() {
     if (!dragging) return;
     dragging = false;
     slider.style.cursor = 'grab';
 
     // Snap to nearest card
-    let currentIndex = Math.round(-currentTranslate / cardWidth);
+    currentIndex = Math.round(-currentTranslate / cardWidth);
     if(currentIndex < 0) currentIndex = cards.length - 1;
     if(currentIndex >= cards.length) currentIndex = 0;
     currentTranslate = -currentIndex * cardWidth;
 
-    // Reset tilt after snap
+    // Reset tilt on snap
     for(let i = 0; i < cards.length; i++) {
       cards[i].style.setProperty('--tilt-angle', '0deg');
     }
@@ -291,24 +319,18 @@
     setSliderPosition();
   }
 
+  // Get X coordinate from event (mouse or touch)
   function getX(event) {
-    return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+    if(event.type.includes('mouse')) return event.pageX;
+    return event.touches[0].clientX;
   }
 
-  slider.addEventListener('touchstart', touchStart);
-  slider.addEventListener('touchend', touchEnd);
-  slider.addEventListener('touchmove', touchMove);
-  slider.addEventListener('mousedown', touchStart);
-  slider.addEventListener('mouseup', touchEnd);
-  slider.addEventListener('mouseleave', touchEnd);
-  slider.addEventListener('mousemove', touchMove);
-
-  // Initialize cursor and transform
+  // Initialize slider cursor and position
   slider.style.cursor = 'grab';
   currentTranslate = 0;
   setSliderPosition();
 
-  // Fade-in sections on scroll
+  // Fade-in animation for sections on scroll
   window.addEventListener('scroll', () => {
     document.querySelectorAll('.fade-section').forEach(el => {
       const top = el.getBoundingClientRect().top;
@@ -317,78 +339,6 @@
       }
     });
   });
-
-  // --- Social Media Embed Script ---
-  // This script detects the data-embed-url attribute and loads the appropriate embed.
-  // Currently supports Twitter, Instagram, Facebook posts.
-
-  function loadSocialEmbed() {
-    const container = document.getElementById('socialEmbed');
-    const url = container.getAttribute('data-embed-url');
-    if(!url) return;
-
-    // Detect platform from URL
-    if(url.includes('twitter.com')) {
-      // Twitter embed script
-      if(!window.twttr) {
-        const script = document.createElement('script');
-        script.src = "https://platform.twitter.com/widgets.js";
-        script.async = true;
-        script.onload = () => createTwitterEmbed(url, container);
-        document.body.appendChild(script);
-      } else {
-        createTwitterEmbed(url, container);
-      }
-    } else if(url.includes('instagram.com')) {
-      // Instagram embed
-      if(!window.instgrm) {
-        const script = document.createElement('script');
-        script.src = "https://www.instagram.com/embed.js";
-        script.async = true;
-        script.onload = () => createInstagramEmbed(container);
-        document.body.appendChild(script);
-      } else {
-        createInstagramEmbed(container);
-      }
-    } else if(url.includes('facebook.com')) {
-      // Facebook embed
-      if(!window.FB) {
-        const script = document.createElement('script');
-        script.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v14.0";
-        script.async = true;
-        script.onload = () => createFacebookEmbed(url, container);
-        document.body.appendChild(script);
-      } else {
-        createFacebookEmbed(url, container);
-      }
-    } else {
-      container.innerHTML = '<p>Unsupported social media URL.</p>';
-    }
-  }
-
-  function createTwitterEmbed(url, container) {
-    container.innerHTML = `<blockquote class="twitter-tweet"><a href="${url}"></a></blockquote>`;
-    if(window.twttr && window.twttr.widgets) {
-      window.twttr.widgets.load(container);
-    }
-  }
-
-  function createInstagramEmbed(container) {
-    container.innerHTML = `<blockquote class="instagram-media" data-instgrm-permalink="${container.getAttribute('data-embed-url')}" data-instgrm-version="14"></blockquote>`;
-    if(window.instgrm && window.instgrm.Embeds) {
-      window.instgrm.Embeds.process();
-    }
-  }
-
-  function createFacebookEmbed(url, container) {
-    container.innerHTML = `<div class="fb-post" data-href="${url}" data-width="500"></div>`;
-    if(window.FB && window.FB.XFBML) {
-      window.FB.XFBML.parse(container);
-    }
-  }
-
-  // Run embed loader after page load
-  window.addEventListener('load', loadSocialEmbed);
 </script>
 
 </body>
