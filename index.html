@@ -45,27 +45,25 @@ nav {
   padding: 10px;
   text-align: center;
 }
-    @media (max-width: 600px) {
+   @media (max-width: 600px) {
   nav a {
-    font-size: 14px;
-    padding: 8px 16px;
+    font-size: 12px;
+    padding: 6px 12px;
   }
 }
-
    nav {
   display: flex;
-  flex-wrap: wrap;           /* Allow wrapping if needed */
-  justify-content: center;   /* Center horizontally */
-  gap: 10px;                 /* Space between buttons */
+  flex-wrap: nowrap;          /* Force items to stay in one row */
+  justify-content: center;    /* Center the row */
+  overflow-x: auto;           /* Allow horizontal scrolling if absolutely needed */
+  gap: 10px;                  /* Space between buttons */
 }
-
 nav a {
-  white-space: nowrap;       /* Prevent text wrapping inside button */
-  font-size: 14px;           /* Slightly smaller font for mobile */
-  padding: 8px 16px;         /* Slightly smaller buttons */
+  flex-shrink: 1;             /* Allow shrinking */
+  white-space: nowrap;        /* Prevent text wrapping */
+  font-size: 14px;            /* Slightly smaller text */
+  padding: 8px 14px;          /* Slightly smaller padding */
 }
-
-
     .hero {
       background: #ffffff;
       padding: 60px 20px;
