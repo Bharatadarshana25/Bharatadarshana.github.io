@@ -4,253 +4,75 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bharatadarshana - India’s Strength & Truth</title>
-  <meta name="description" content="Showcasing India’s geopolitical rise, economic growth under Modi, and exposing anti-national narratives." />
   <style>
-    /* === Reset & base === */
-    *, *::before, *::after { box-sizing: border-box; }
     body {
-      margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #fdfaf6; color: #222; line-height: 1.6;
+      margin: 0; font-family: Arial, sans-serif;
+      background: #fdfaf6; color: #222; line-height: 1.5;
       scroll-behavior: smooth;
     }
-    a { color: #e65100; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* === Container === */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 1rem 1.5rem;
-    }
-
-    /* === Header === */
     header {
       position: sticky;
-      top: 0; left: 0; right: 0;
-      background: #004d40; color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 1.5rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      z-index: 1000;
-      transition: background-color 0.3s ease;
+      top: 0; background: #004d40; color: white;
+      padding: 1rem 1.5rem; display: flex; justify-content: space-between;
+      align-items: center; z-index: 1000;
     }
-    header.shrink {
-      background-color: #00332e;
-      padding: 0.5rem 1.5rem;
-    }
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      user-select: none;
-      cursor: default;
-    }
-    nav {
-      display: flex;
-      gap: 1.2rem;
-    }
+    .logo { font-weight: bold; font-size: 1.8rem; letter-spacing: 2px; }
     nav a {
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.3rem 0.5rem;
+      color: white; margin-left: 1rem; text-decoration: none; font-weight: 600;
       position: relative;
     }
-    nav a::after {
+    nav a:hover::after {
       content: '';
-      position: absolute;
-      left: 0; bottom: 0;
-      width: 0%;
-      height: 2px;
-      background: #e65100;
-      transition: width 0.3s ease;
+      position: absolute; left: 0; bottom: -3px;
+      width: 100%; height: 2px; background: #e65100;
     }
-    nav a:hover::after,
-    nav a.active::after {
-      width: 100%;
-    }
-
-    /* === Hero Section === */
-    .hero {
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=960&q=80') center center/cover no-repeat;
-      color: white;
-      padding: 5rem 1.5rem 6rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 77, 64, 0.7);
-      z-index: 0;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      letter-spacing: 3px;
-      font-weight: 900;
-      text-shadow: 0 0 8px rgba(0,0,0,0.7);
-    }
-    .hero p {
-      font-size: 1.3rem;
-      font-weight: 500;
-      text-shadow: 0 0 5px rgba(0,0,0,0.5);
-    }
-
-    /* === Sections === */
-    section {
-      margin: 3rem 0;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    h2 {
-      border-left: 5px solid #e65100;
-      padding-left: 0.75rem;
-      color: #004d40;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      font-size: 2rem;
-      letter-spacing: 1.5px;
-    }
-    p, li {
-      font-size: 1.1rem;
-      color: #333;
-      margin-bottom: 1rem;
-    }
-
-    /* === Article Cards === */
+    .container { max-width: 900px; margin: auto; padding: 1rem; }
+    h1, h2, h3 { color: #004d40; }
+    h1 { font-size: 2.8rem; }
+    h2 { font-size: 2rem; border-left: 5px solid #e65100; padding-left: 10px; margin-top: 2rem; }
+    section { margin-bottom: 3rem; }
+    p { font-size: 1.1rem; color: #333; }
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
     }
     .card {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-      overflow: hidden;
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 16px rgb(0 0 0 / 0.15);
+      background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden; cursor: pointer;
+      display: flex; flex-direction: column;
     }
     .card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      flex-shrink: 0;
+      width: 100%; height: 140px; object-fit: cover;
     }
     .card-body {
-      padding: 1rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
+      padding: 0.8rem 1rem; flex-grow: 1;
+      display: flex; flex-direction: column;
     }
     .card-body h3 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      font-size: 1.25rem;
-      color: #004d40;
-      font-weight: 700;
+      margin: 0 0 0.5rem 0; font-size: 1.2rem;
     }
     .card-body p {
       flex-grow: 1;
-      color: #555;
-      font-weight: 400;
     }
-
-    /* === Video Embed Container === */
     .video-container {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      margin: 2rem 0;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 6px 15px rgb(0 0 0 / 0.1);
+      position: relative; width: 100%; padding-bottom: 56.25%; /* 16:9 */
+      margin: 1rem 0;
     }
     .video-container iframe {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      border: none;
-      border-radius: 10px;
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      border: none; border-radius: 8px;
     }
-
-    /* === Social Feeds === */
-    .social-feed {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-    }
-    .social-feed > blockquote {
-      max-width: 350px;
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgb(0 0 0 / 0.1);
-      background: white;
-      padding: 1rem;
-    }
-
-    /* === Footer === */
     footer {
-      background: #004d40;
-      color: white;
-      text-align: center;
-      padding: 1.2rem 1.5rem;
-      margin-top: 4rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-    }
-
-    /* === Responsive Nav Toggle (mobile) === */
-    @media (max-width: 600px) {
-      nav {
-        gap: 0.8rem;
-      }
-      header {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .logo {
-        flex-basis: 100%;
-        text-align: center;
-        margin-bottom: 0.5rem;
-      }
+      text-align: center; padding: 1rem; background: #004d40; color: white; font-weight: 600;
     }
   </style>
-
-  <!-- Twitter Widget -->
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <!-- Instagram Embed -->
-  <script async defer src="//www.instagram.com/embed.js"></script>
 </head>
 <body>
-
-  <header id="page-header">
+  <header>
     <div class="logo">BHARATADARSHANA</div>
     <nav>
-      <a href="#home" class="active">Home</a>
+      <a href="#home">Home</a>
       <a href="#geopolitics">Geopolitics</a>
       <a href="#economy">Economy</a>
       <a href="#conflicts">Conflicts</a>
@@ -259,16 +81,13 @@
   </header>
 
   <main class="container">
-    <!-- Home / Hero -->
-    <section id="home" class="visible" style="margin-top: 3rem;">
-      <div class="hero">
-        <div class="hero-content">
-          <h1>India’s Strength & Global Vision</h1>
-          <p>Showcasing the rise of Bharat in geopolitics, economy, and truth.</p>
-        </div>
-      </div>
-      <div class="video-container" style="margin-top: 2rem;">
-        <iframe src="https://www.youtube.com/embed/2-SrPZ0UHPc" allowfullscreen title="Intro Video"></iframe>
+    <!-- Home -->
+    <section id="home">
+      <h1>India’s Strength & Global Vision</h1>
+      <p>Showcasing the rise of Bharat in geopolitics, economy, and truth.</p>
+      <div class="video-container">
+        <!-- Valid YouTube embed -->
+        <iframe src="https://www.youtube.com/embed/SmK5Qc3w34k" allowfullscreen title="Intro to India's rise"></iframe>
       </div>
     </section>
 
@@ -277,17 +96,7 @@
       <h2>India’s Global Influence</h2>
       <p>India asserts itself as a global power through strategic diplomacy and partnerships.</p>
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/oP3l_p-SV7g" allowfullscreen title="Geopolitics Video"></iframe>
-      </div>
-
-      <h3>Latest Tweets</h3>
-      <div class="social-feed">
-        <blockquote class="twitter-tweet" data-lang="en">
-          <p lang="en" dir="ltr">India strengthens ties with key nations, enhancing regional stability. #BharatGlobal</p>&mdash; IndiaDiplomacy (@IndiaDiplomacy) <a href="https://twitter.com/IndiaDiplomacy/status/1">Jan 1, 2025</a>
-        </blockquote>
-        <blockquote class="twitter-tweet" data-lang="en">
-          <p lang="en" dir="ltr">Modi government’s foreign policy making waves globally. #MakeInIndia</p>&mdash; ModiUpdates (@ModiUpdates) <a href="https://twitter.com/ModiUpdates/status/2">Feb 15, 2025</a>
-        </blockquote>
+        <iframe src="https://www.youtube.com/embed/3p3-vQb7hpM" allowfullscreen title="Geopolitics"></iframe>
       </div>
     </section>
 
@@ -297,100 +106,69 @@
       <p>India’s economy is booming with reforms, startups, and Make in India initiatives.</p>
       <div class="card-grid">
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80" alt="Startup India" />
+          <img src="https://images.unsplash.com/photo-1556742400-b5c3beeb5be2?auto=format&fit=crop&w=400&q=60" alt="Startup India" />
           <div class="card-body">
             <h3>Startup India Revolution</h3>
-            <p>How startups are transforming the Indian economy and creating jobs.</p>
+            <p>Startups transforming India's economy and creating jobs.</p>
           </div>
         </article>
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=400&q=80" alt="Make in India" />
+          <img src="https://images.unsplash.com/photo-1565372916611-cb49241d9bf2?auto=format&fit=crop&w=400&q=60" alt="Make in India" />
           <div class="card-body">
-            <h3>Make in India Initiative https://www.makeinindia.com/about</h3>
-            <p>The impact of Make in India on manufacturing and exports.</p>
+            <h3>Make in India Initiative</h3>
+            <p>Boosting manufacturing and exports with indigenous products.</p>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- Conflicts & Security -->
+    <!-- Conflicts -->
     <section id="conflicts">
       <h2>India-Pakistan Conflicts & Anti-National Narratives</h2>
       <p>Analyzing ongoing conflicts, political betrayals, and foreign support for Pakistan.</p>
       <div class="card-grid">
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1486308510493-cb65b5af7b99?auto=format&fit=crop&w=400&q=80" alt="India-Pakistan Conflict" />
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=60" alt="Conflict" />
           <div class="card-body">
             <h3>India-Pakistan Relations</h3>
             <p>History and current status of conflicts and peace talks.</p>
           </div>
         </article>
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Turkey-Pakistan Support" />
+          <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=60" alt="Turkey Pakistan" />
           <div class="card-body">
             <h3>Turkey’s Support for Pakistan</h3>
-            <p>Examining Turkey’s strategic ties with Pakistan and implications for India.</p>
+            <p>Strategic ties between Turkey and Pakistan, impact on India.</p>
           </div>
         </article>
       </div>
       <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/JKVcpEFlj80" allowfullscreen title="Conflicts Explained"></iframe>
+        <iframe src="https://www.youtube.com/embed/Zv9TlNQShRI" allowfullscreen title="Conflict Explainer"></iframe>
       </div>
     </section>
 
     <!-- Blogs -->
     <section id="blogs">
       <h2>Featured Blogs & Opinions</h2>
-      <article class="card" style="max-width: 700px; margin-bottom: 2rem;">
-        <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=800&q=80" alt="Blog Post" />
+      <article class="card" style="max-width: 700px; margin-bottom: 1.5rem;">
+        <img src="https://images.unsplash.com/photo-1486308510493-cb65b5af7b99?auto=format&fit=crop&w=700&q=60" alt="Blog Post" />
         <div class="card-body">
           <h3>The Modi Government’s Economic Impact</h3>
-          <p>An in-depth look at how recent reforms have changed India’s economic landscape.</p>
-          <a href="#">Read More →</a>
+          <p>An in-depth look at how reforms have transformed India's economy.</p>
         </div>
       </article>
-      <article class="card" style="max-width: 700px; margin-bottom: 2rem;">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Blog Post" />
+      <article class="card" style="max-width: 700px;">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=700&q=60" alt="Blog Post" />
         <div class="card-body">
           <h3>Exposing Anti-National Narratives</h3>
-          <p>Understanding how misinformation impacts national unity and how to counter it.</p>
-          <a href="#">Read More →</a>
+          <p>How misinformation affects national unity and counter strategies.</p>
         </div>
       </article>
     </section>
-
   </main>
 
   <footer>
-    &copy; 2025 Bharatadarshana | Proudly showcasing India’s strength
+    &copy; 2025 Bharatadarshana | Showcasing India’s strength and truth
   </footer>
-
-  <script>
-    // Header shrink on scroll
-    const header = document.getElementById('page-header');
-    window.addEventListener('scroll', () => {
-      if(window.scrollY > 80){
-        header.classList.add('shrink');
-      } else {
-        header.classList.remove('shrink');
-      }
-    });
-
-    // Scroll-triggered fade-in animations for sections
-    const sections = document.querySelectorAll('section');
-    const revealOnScroll = () => {
-      const triggerBottom = window.innerHeight * 0.9;
-      sections.forEach(section => {
-        const sectionTop = section.getBoundingClientRect().top;
-        if(sectionTop < triggerBottom) {
-          section.classList.add('visible');
-        }
-      });
-    };
-
-    window.addEventListener('scroll', revealOnScroll);
-    window.addEventListener('load', revealOnScroll);
-  </script>
-
 </body>
 </html>
