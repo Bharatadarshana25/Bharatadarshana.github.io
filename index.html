@@ -11,7 +11,6 @@
       font-family: 'Inter', sans-serif;
       background-color: #fff;
       color: #333;
-      overflow-x: hidden;
     }
 
     /* Sticky Navigation */
@@ -44,7 +43,7 @@
     /* Hero Section */
     .hero {
       height: 100vh;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+      background: url('india-map.jpg') no-repeat center/cover;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -64,37 +63,43 @@
 
     /* Blog Section */
     .blog-section {
-      padding: 40px 20px;
+      padding: 40px 20px 60px;
       text-align: center;
-      perspective: 1500px; /* Enable 3D perspective for cylindrical effect */
+      position: relative;
+    }
+    .blog-section h2 {
+      margin-bottom: 10px;
+      font-weight: 700;
+      font-size: 2rem;
+      color: #0b3d91;
     }
 
-    .grid {
+    /* Carousel grid styles */
+    #blogGrid {
       display: flex;
-      justify-content: center;
       gap: 30px;
-      transform-style: preserve-3d;
-      transition: transform 0.3s ease-out;
-      cursor: grab;
+      overflow: hidden;
+      padding-bottom: 20px;
+      will-change: transform;
+      cursor: default;
+      transition: transform 0.5s ease;
       user-select: none;
-      padding-bottom: 40px;
+      scroll-behavior: smooth;
     }
 
+    /* Card styles */
     .card {
-      flex: 0 0 250px;
+      flex: 0 0 280px; /* fixed width for smooth carousel */
+      text-decoration: none;
+      color: black;
       background: #f9f9f9;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      transform-style: preserve-3d;
-      position: relative;
-      cursor: pointer;
+      transition: transform 0.3s ease;
     }
     .card:hover {
-      box-shadow: 0 15px 25px rgba(0,0,0,0.2);
       transform: translateY(-10px);
-      z-index: 10;
     }
     .card img {
       width: 100%;
@@ -104,11 +109,33 @@
     }
     .card h3 {
       padding: 10px;
-      font-weight: 700;
-      color: #0b3d91;
+      font-weight: 600;
+      font-size: 1.1rem;
     }
 
-    /* Scroll Animation */
+    /* Carousel buttons */
+    .carousel-controls {
+      margin-top: 10px;
+      text-align: center;
+      user-select: none;
+    }
+    .carousel-controls button {
+      background-color: #0b3d91;
+      color: white;
+      border: none;
+      padding: 10px 25px;
+      margin: 0 10px;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+    }
+    .carousel-controls button:hover {
+      background-color: #06407a;
+    }
+
+    /* Fade sections */
     .fade-section {
       opacity: 0;
       transform: translateY(20px);
@@ -125,14 +152,28 @@
       color: white;
       text-align: center;
       padding: 10px;
-      user-select: none;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      #blogGrid {
+        gap: 15px;
+      }
+      .card {
+        flex: 0 0 220px;
+      }
+      .carousel-controls button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <nav>
-    <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="Flag" />
+    <img src="flag-icon.png" alt="Flag" />
     <a href="#">Home</a>
     <a href="#">Geopolitics</a>
     <a href="#">History</a>
@@ -147,33 +188,58 @@
 
   <section class="fade-section blog-section">
     <h2>Explore Topics</h2>
-    <div class="grid" id="blogGrid">
+    <!-- Carousel Grid -->
+    <div id="blogGrid">
       <a href="#" class="card">
-        <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=500&q=60" alt="Kashmir" />
+        <img src="kashmir-thumb.jpg" alt="Kashmir" />
         <h3>Kashmir: A Tense Terrain</h3>
       </a>
       <a href="#" class="card">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=500&q=60" alt="Indo-China" />
+        <img src="indo-china-thumb.jpg" alt="Indo-China" />
         <h3>Indo-China Borderline Battles</h3>
       </a>
       <a href="#" class="card">
-        <img src="https://images.unsplash.com/photo-1526779259212-cdaaf7a35328?auto=format&fit=crop&w=500&q=60" alt="South Asia" />
+        <img src="south-asia-thumb.jpg" alt="South Asia" />
         <h3>India's Role in South Asia</h3>
       </a>
-      <!-- New topics -->
+      <!-- Added more topics -->
       <a href="#" class="card">
-        <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=500&q=60" alt="Indian Economy" />
-        <h3>The Rise of Indian Economy</h3>
+        <img src="economy-thumb.jpg" alt="Economy" />
+        <h3>India's Economic Growth</h3>
       </a>
       <a href="#" class="card">
-        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=500&q=60" alt="Culture" />
-        <h3>India's Rich Cultural Tapestry</h3>
+        <img src="culture-thumb.jpg" alt="Culture" />
+        <h3>Cultural Diversity of India</h3>
       </a>
       <a href="#" class="card">
-        <img src="https://images.unsplash.com/photo-1530464971940-84d6fa90a4fa?auto=format&fit=crop&w=500&q=60" alt="Technology" />
-        <h3>Technology & Innovation in Bharat</h3>
+        <img src="technology-thumb.jpg" alt="Technology" />
+        <h3>Tech Innovations in Bharat</h3>
       </a>
     </div>
+
+    <!-- Carousel Controls -->
+    <div class="carousel-controls">
+      <button id="prevBtn" aria-label="Previous Topic">&larr; Prev</button>
+      <button id="nextBtn" aria-label="Next Topic">Next &rarr;</button>
+    </div>
+
+    <!-- Example Instagram Embed (Uncomment and replace URL to use) -->
+    <!--
+    <section class="instagram-post" style="margin-top:40px;">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/POST_ID/" data-instgrm-version="14" style="background:#FFF; border:0; margin: 1px; max-width:540px; width:100%;"></blockquote>
+      <script async src="//www.instagram.com/embed.js"></script>
+    </section>
+    -->
+
+    <!-- Example Twitter Embed (Uncomment and replace URL to use) -->
+    <!--
+    <section class="twitter-post" style="margin-top:40px;">
+      <blockquote class="twitter-tweet" data-lang="en">
+        <p lang="en" dir="ltr">Your tweet content here</p>&mdash; User (@user) <a href="https://twitter.com/user/status/TWEET_ID">Date</a>
+      </blockquote> 
+      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </section>
+    -->
   </section>
 
   <footer>
@@ -191,56 +257,37 @@
       });
     });
 
-    // Cylindrical swipe effect on blog grid
-    const grid = document.getElementById('blogGrid');
-    let isDragging = false;
-    let startX;
-    let currentX = 0;
-    let currentRotation = 0;
+    // Carousel functionality
+    const blogGrid = document.getElementById('blogGrid');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
 
-    grid.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      startX = e.pageX - currentX;
-      grid.style.cursor = 'grabbing';
-      e.preventDefault();
-    });
+    // Width to scroll each time = card width + gap (adjust if you change CSS)
+    const cardWidth = 280 + 30; // card width + gap
 
-    window.addEventListener('mouseup', () => {
-      isDragging = false;
-      grid.style.cursor = 'grab';
-    });
+    let scrollAmount = 0;
 
-    window.addEventListener('mousemove', (e) => {
-      if (!isDragging) return;
-      currentX = e.pageX - startX;
+    function scrollNext() {
+      scrollAmount += cardWidth;
+      if (scrollAmount > blogGrid.scrollWidth - blogGrid.clientWidth) {
+        scrollAmount = 0; // loop back to start
+      }
+      blogGrid.style.transform = `translateX(${-scrollAmount}px)`;
+      blogGrid.style.transition = 'transform 0.5s ease';
+    }
 
-      // Limit the rotation to -45deg to +45deg
-      currentRotation = Math.max(Math.min(currentX / 10, 45), -45);
+    function scrollPrev() {
+      scrollAmount -= cardWidth;
+      if (scrollAmount < 0) {
+        scrollAmount = blogGrid.scrollWidth - blogGrid.clientWidth; // loop to end
+      }
+      blogGrid.style.transform = `translateX(${-scrollAmount}px)`;
+      blogGrid.style.transition = 'transform 0.5s ease';
+    }
 
-      // Apply cylindrical curve transform
-      // rotateY according to currentRotation
-      // Also apply slight translateZ to create depth illusion per card
-      grid.style.transform = `rotateY(${currentRotation}deg)`;
-
-      // To enhance the cylindrical look, we add perspective and transform-style already set
-    });
-
-    // For touch devices (mobile)
-    grid.addEventListener('touchstart', (e) => {
-      isDragging = true;
-      startX = e.touches[0].pageX - currentX;
-      e.preventDefault();
-    });
-    window.addEventListener('touchend', () => {
-      isDragging = false;
-    });
-    window.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      currentX = e.touches[0].pageX - startX;
-      currentRotation = Math.max(Math.min(currentX / 10, 45), -45);
-      grid.style.transform = `rotateY(${currentRotation}deg)`;
-    });
-
+    nextBtn.addEventListener('click', scrollNext);
+    prevBtn.addEventListener('click', scrollPrev);
   </script>
+
 </body>
 </html>
