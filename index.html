@@ -1,293 +1,262 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Bharatadarshana</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #fff;
-      color: #333;
-    }
-
-    /* Sticky Navigation */
-    nav {
-      position: sticky;
-      top: 0;
-      background: white;
-      padding: 10px 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      z-index: 100;
-    }
-    nav img {
-      height: 20px;
-    }
-    nav a {
-      text-decoration: none;
-      color: #0b3d91;
-      font-weight: bold;
-      padding: 6px 12px;
-      border-radius: 5px;
-      transition: background 0.3s ease;
-    }
-    nav a:hover {
-      background-color: #e6f0ff;
-    }
-
-    /* Hero Section */
-    .hero {
-      height: 100vh;
-      background: url('india-map.jpg') no-repeat center/cover;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: white;
-    }
-    .hero-content {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px 40px;
-      border-radius: 10px;
-      animation: fadeIn 2s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Blog Section */
-    .blog-section {
-      padding: 40px 20px 60px;
-      text-align: center;
-      position: relative;
-    }
-    .blog-section h2 {
-      margin-bottom: 10px;
-      font-weight: 700;
-      font-size: 2rem;
-      color: #0b3d91;
-    }
-
-    /* Carousel grid styles */
-    #blogGrid {
-      display: flex;
-      gap: 30px;
-      overflow: hidden;
-      padding-bottom: 20px;
-      will-change: transform;
-      cursor: default;
-      transition: transform 0.5s ease;
-      user-select: none;
-      scroll-behavior: smooth;
-    }
-
-    /* Card styles */
-    .card {
-      flex: 0 0 280px; /* fixed width for smooth carousel */
-      text-decoration: none;
-      color: black;
-      background: #f9f9f9;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-10px);
-    }
-    .card img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      display: block;
-    }
-    .card h3 {
-      padding: 10px;
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-
-    /* Carousel buttons */
-    .carousel-controls {
-      margin-top: 10px;
-      text-align: center;
-      user-select: none;
-    }
-    .carousel-controls button {
-      background-color: #0b3d91;
-      color: white;
-      border: none;
-      padding: 10px 25px;
-      margin: 0 10px;
-      font-weight: 700;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      font-size: 1rem;
-    }
-    .carousel-controls button:hover {
-      background-color: #06407a;
-    }
-
-    /* Fade sections */
-    .fade-section {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
-    }
-    .fade-section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Footer */
-    footer {
-      background-color: #138808;
-      color: white;
-      text-align: center;
-      padding: 10px;
-      font-size: 0.9rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      #blogGrid {
-        gap: 15px;
-      }
-      .card {
-        flex: 0 0 220px;
-      }
-      .carousel-controls button {
-        padding: 8px 15px;
-        font-size: 0.9rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Bharatadarshana</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #fff;
+    color: #333;
+    overflow-x: hidden;
+  }
+  nav {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 100;
+  }
+  nav img {
+    height: 20px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #0b3d91;
+    font-weight: bold;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  nav a:hover {
+    background-color: #e6f0ff;
+  }
+  .hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  .hero-content {
+    background: rgba(0,0,0,0.6);
+    padding: 20px 40px;
+    border-radius: 10px;
+    animation: fadeIn 2s ease;
+  }
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+  .blog-section {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .blog-section h2 {
+    margin-bottom: 20px;
+  }
+  .slider-container {
+    overflow: hidden;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .slider-track {
+    display: flex;
+    transition: transform 0.4s ease;
+    will-change: transform;
+  }
+  .card {
+    min-width: 280px;
+    max-width: 280px;
+    margin: 0 10px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+    cursor: grab;
+    user-select: none;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+  }
+  .card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+  .card h3 {
+    padding: 10px;
+    margin: 0;
+  }
+  .card:active {
+    cursor: grabbing;
+  }
+  .card.tilt {
+    transform: rotateY(var(--tilt-angle, 0deg)) translateZ(20px);
+  }
+  footer {
+    background-color: #138808;
+    color: white;
+    text-align: center;
+    padding: 10px;
+  }
+</style>
 </head>
 <body>
 
-  <nav>
-    <img src="flag-icon.png" alt="Flag" />
-    <a href="#">Home</a>
-    <a href="#">Geopolitics</a>
-    <a href="#">History</a>
-  </nav>
+<nav>
+  <img src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg" alt="Flag" />
+  <a href="#">Home</a>
+  <a href="#">Geopolitics</a>
+  <a href="#">History</a>
+</nav>
 
-  <section class="fade-section hero">
-    <div class="hero-content">
-      <h1>India at the Crossroads</h1>
-      <p>Unpacking the geopolitics shaping modern Bharat.</p>
-    </div>
-  </section>
+<section class="hero fade-section">
+  <div class="hero-content">
+    <h1>India at the Crossroads</h1>
+    <p>Unpacking the geopolitics shaping modern Bharat.</p>
+  </div>
+</section>
 
-  <section class="fade-section blog-section">
-    <h2>Explore Topics</h2>
-    <!-- Carousel Grid -->
-    <div id="blogGrid">
+<section class="blog-section fade-section">
+  <h2>Explore Topics</h2>
+  <div class="slider-container" id="slider">
+    <div class="slider-track" id="sliderTrack">
       <a href="#" class="card">
-        <img src="kashmir-thumb.jpg" alt="Kashmir" />
+        <img src="https://images.unsplash.com/photo-1558199146-c3f6f3ae7765?auto=format&fit=crop&w=400&q=80" alt="Kashmir" />
         <h3>Kashmir: A Tense Terrain</h3>
       </a>
       <a href="#" class="card">
-        <img src="indo-china-thumb.jpg" alt="Indo-China" />
+        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=400&q=80" alt="Indo-China" />
         <h3>Indo-China Borderline Battles</h3>
       </a>
       <a href="#" class="card">
-        <img src="south-asia-thumb.jpg" alt="South Asia" />
+        <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=400&q=80" alt="South Asia" />
         <h3>India's Role in South Asia</h3>
       </a>
-      <!-- Added more topics -->
       <a href="#" class="card">
-        <img src="economy-thumb.jpg" alt="Economy" />
+        <img src="https://images.unsplash.com/photo-1486308510493-cf553b2a24b2?auto=format&fit=crop&w=400&q=80" alt="Indian Economy" />
         <h3>India's Economic Growth</h3>
       </a>
       <a href="#" class="card">
-        <img src="culture-thumb.jpg" alt="Culture" />
-        <h3>Cultural Diversity of India</h3>
-      </a>
-      <a href="#" class="card">
-        <img src="technology-thumb.jpg" alt="Technology" />
-        <h3>Tech Innovations in Bharat</h3>
+        <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Culture" />
+        <h3>Cultural Heritage of India</h3>
       </a>
     </div>
+  </div>
+</section>
 
-    <!-- Carousel Controls -->
-    <div class="carousel-controls">
-      <button id="prevBtn" aria-label="Previous Topic">&larr; Prev</button>
-      <button id="nextBtn" aria-label="Next Topic">Next &rarr;</button>
-    </div>
+<footer>
+  &copy; 2025 Bharatadarshana. All rights reserved.
+</footer>
 
-    <!-- Example Instagram Embed (Uncomment and replace URL to use) -->
-    <!--
-    <section class="instagram-post" style="margin-top:40px;">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/POST_ID/" data-instgrm-version="14" style="background:#FFF; border:0; margin: 1px; max-width:540px; width:100%;"></blockquote>
-      <script async src="//www.instagram.com/embed.js"></script>
-    </section>
-    -->
+<script>
+  const slider = document.getElementById('slider');
+  const track = document.getElementById('sliderTrack');
+  const cards = track.children;
+  let pos = 0;
+  let startX = 0;
+  let currentTranslate = 0;
+  let prevTranslate = 0;
+  let dragging = false;
+  let animationID = 0;
+  let currentIndex = 0;
+  const cardWidth = cards[0].offsetWidth + 20; // card + margin
 
-    <!-- Example Twitter Embed (Uncomment and replace URL to use) -->
-    <!--
-    <section class="twitter-post" style="margin-top:40px;">
-      <blockquote class="twitter-tweet" data-lang="en">
-        <p lang="en" dir="ltr">Your tweet content here</p>&mdash; User (@user) <a href="https://twitter.com/user/status/TWEET_ID">Date</a>
-      </blockquote> 
-      <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    </section>
-    -->
-  </section>
+  function setSliderPosition() {
+    track.style.transform = `translateX(${currentTranslate}px)`;
+  }
 
-  <footer>
-    &copy; 2025 Bharatadarshana. All rights reserved.
-  </footer>
+  function clamp(value, min, max) {
+    return Math.min(Math.max(value, min), max);
+  }
 
-  <script>
-    // Fade-in on scroll
-    window.addEventListener('scroll', () => {
-      document.querySelectorAll('.fade-section').forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < window.innerHeight * 0.8) {
-          el.classList.add('visible');
-        }
-      });
+  slider.addEventListener('touchstart', touchStart);
+  slider.addEventListener('touchend', touchEnd);
+  slider.addEventListener('touchmove', touchMove);
+  slider.addEventListener('mousedown', touchStart);
+  slider.addEventListener('mouseup', touchEnd);
+  slider.addEventListener('mouseleave', touchEnd);
+  slider.addEventListener('mousemove', touchMove);
+
+  function touchStart(event) {
+    dragging = true;
+    startX = getX(event);
+    prevTranslate = currentTranslate;
+    cancelAnimationFrame(animationID);
+    slider.style.cursor = 'grabbing';
+  }
+
+  function touchMove(event) {
+    if (!dragging) return;
+    const currentX = getX(event);
+    const deltaX = currentX - startX;
+    currentTranslate = prevTranslate + deltaX;
+
+    // tilt effect on cards
+    for(let i = 0; i < cards.length; i++) {
+      const cardCenter = (cardWidth * i) + cardWidth/2 + currentTranslate;
+      const sliderCenter = slider.offsetWidth / 2;
+      const diff = cardCenter - sliderCenter;
+      const maxTilt = 15;
+      let tiltAngle = (diff / slider.offsetWidth) * maxTilt;
+      tiltAngle = Math.min(Math.max(tiltAngle, -maxTilt), maxTilt);
+      cards[i].style.setProperty('--tilt-angle', tiltAngle + 'deg');
+    }
+
+    setSliderPosition();
+  }
+
+  function touchEnd() {
+    if (!dragging) return;
+    dragging = false;
+    slider.style.cursor = 'grab';
+
+    // Snap to nearest card
+    currentIndex = Math.round(-currentTranslate / cardWidth);
+    if(currentIndex < 0) currentIndex = cards.length - 1;
+    if(currentIndex >= cards.length) currentIndex = 0;
+    currentTranslate = -currentIndex * cardWidth;
+
+    // Reset tilt on snap
+    for(let i = 0; i < cards.length; i++) {
+      cards[i].style.setProperty('--tilt-angle', '0deg');
+    }
+
+    setSliderPosition();
+  }
+
+  function getX(event) {
+    if(event.type.includes('mouse')) return event.pageX;
+    return event.touches[0].clientX;
+  }
+
+  // Initialize cursor and transform
+  slider.style.cursor = 'grab';
+  currentTranslate = 0;
+  setSliderPosition();
+
+  // Fade-in sections on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelectorAll('.fade-section').forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if(top < window.innerHeight * 0.8) {
+        el.classList.add('visible');
+      }
     });
-
-    // Carousel functionality
-    const blogGrid = document.getElementById('blogGrid');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-
-    // Width to scroll each time = card width + gap (adjust if you change CSS)
-    const cardWidth = 280 + 30; // card width + gap
-
-    let scrollAmount = 0;
-
-    function scrollNext() {
-      scrollAmount += cardWidth;
-      if (scrollAmount > blogGrid.scrollWidth - blogGrid.clientWidth) {
-        scrollAmount = 0; // loop back to start
-      }
-      blogGrid.style.transform = `translateX(${-scrollAmount}px)`;
-      blogGrid.style.transition = 'transform 0.5s ease';
-    }
-
-    function scrollPrev() {
-      scrollAmount -= cardWidth;
-      if (scrollAmount < 0) {
-        scrollAmount = blogGrid.scrollWidth - blogGrid.clientWidth; // loop to end
-      }
-      blogGrid.style.transform = `translateX(${-scrollAmount}px)`;
-      blogGrid.style.transition = 'transform 0.5s ease';
-    }
-
-    nextBtn.addEventListener('click', scrollNext);
-    prevBtn.addEventListener('click', scrollPrev);
-  </script>
+  });
+</script>
 
 </body>
 </html>
