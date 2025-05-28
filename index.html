@@ -1,93 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" /> <!-- Sets character encoding -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive scaling -->
   <title>Bharatadarshana</title>
+
   <style>
+    /* === Global Styles === */
     body {
-      font-family: Indi Kazka, sans-serif;
+      font-family: 'Indi Kazka', sans-serif; /* Set default font */
       margin: 0;
       padding: 0;
     }
-    header {
-      background-color: #fe5002;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    nav {
-      background: #fe5002;
-      padding: 10px;
-      text-align: center;
-    }
-   nav a {
-  margin: 0 15px;
-  text-decoration: none;
-  color: white;
-  background-color: #0b3d91;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 6px;
-  box-shadow: 0 4px #062a68;
-  font-weight: bold;
-  font-family: 'Indi Kazka', sans-serif; /* Change font style */
-  font-size: 10px;  /* Change font size */
-  transition: all 0.2s ease-in-out;
-}
 
-nav a:hover {
-  background-color: #0941a9;
-  transform: translateY(2px);
-  box-shadow: 0 2px #062a68;
-}
-nav {
-  padding: 10px;
-  text-align: center;
-}
-   @media (max-width: 600px) {
-  nav a {
-    font-size: 12px;
-    padding: 6px 12px;
-  }
-}
-   nav {
-  display: flex;
-  flex-wrap: nowrap;          /* Force items to stay in one row */
-  justify-content: center;    /* Center the row */
-  overflow-x: auto;           /* Allow horizontal scrolling if absolutely needed */
-  gap: 10px;                  /* Space between buttons */
-}
-nav a {
-  flex-shrink: 1;             /* Allow shrinking */
-  white-space: nowrap;        /* Prevent text wrapping */
-  font-size: 14px;            /* Slightly smaller text */
-  padding: 8px 14px;          /* Slightly smaller padding */
-}
+    header, nav, footer {
+      text-align: center;
+      color: white;
+    }
+
+    header {
+      background-color: #fe5002; /* Orange header */
+      padding: 20px;
+    }
+
+    nav {
+      background: #fe5002;     /* Same orange as header */
+      padding: 10px;
+      display: flex;           /* Align nav items in a row */
+      flex-wrap: nowrap;       /* Prevent wrapping */
+      justify-content: center; /* Center nav items */
+      overflow-x: auto;        /* Allow scroll if too many items */
+      gap: 10px;               /* Space between links */
+    }
+
+    nav a {
+      text-decoration: none;
+      color: white;
+      background-color: #0b3d91;   /* Blue background */
+      padding: 8px 14px;           /* Button padding */
+      border-radius: 6px;
+      box-shadow: 0 4px #062a68;   /* Button shadow */
+      font-weight: bold;
+      font-size: 14px;
+      white-space: nowrap;         /* Prevent text wrap */
+      flex-shrink: 1;              /* Allow to shrink on mobile */
+      transition: 0.2s ease-in-out; /* Smooth hover effect */
+    }
+
+    nav a:hover {
+      background-color: #0941a9;   /* Darker on hover */
+      transform: translateY(2px);  /* Move down slightly */
+      box-shadow: 0 2px #062a68;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        font-size: 12px;         /* Smaller text on mobile */
+        padding: 6px 12px;
+      }
+    }
+
     .hero {
-      background: #ffffff;
+      background: white;
       padding: 60px 20px;
       text-align: center;
     }
+
     .about {
-      background: #138808;
+      background: #138808;       /* Green section */
+      color: white;
       padding: 40px 20px;
       text-align: center;
     }
+
     footer {
       background-color: #138808;
-      color: white;
-      text-align: center;
       padding: 10px;
     }
   </style>
 </head>
+
 <body>
+  <!-- === Header Section === -->
   <header>
     <h1>Welcome to Bharatadarshana</h1>
     <p>Discover the essence of India</p>
   </header>
 
+  <!-- === Navigation Bar === -->
   <nav>
     <a href="#">Home</a>
     <a href="#">About</a>
@@ -95,29 +95,32 @@ nav a {
     <a href="#">Contact</a>
   </nav>
 
+  <!-- === Hero Section === -->
   <section class="hero">
     <h2>Experience the Culture, Heritage & Diversity</h2>
     <p>Through curated stories, images, and more.</p>
-  <div style="display: flex; align-items: center; gap: 20px; justify-content: center;">
-  <img src="istockphoto-931097020-612x612.jpg"; alt="Indian Flag"
-       style="height: 25px; width: auto; border-radius: 5px;" />
-       
-  <a href="https://en.wikipedia.org/wiki/Indian_culture" target="_blank"
-     style="background-color: #0b3d91; color: white; padding: 5px 10px;
-            text-decoration: none; border-radius: 5px;
-            display: inline-flex; align-items: center; height: 25px;">
-    Learn More </a>
-</div>
 
+    <!-- Image + Button row -->
+    <div style="display: flex; align-items: center; gap: 20px; justify-content: center;">
+      <img src="istockphoto-931097020-612x612.jpg" alt="Indian Flag"
+           style="height: 25px; width: auto; border-radius: 5px;" />
+
+      <a href="https://en.wikipedia.org/wiki/Indian_culture" target="_blank"
+         style="background-color: #0b3d91; color: white; padding: 5px 10px;
+                text-decoration: none; border-radius: 5px;
+                display: inline-flex; align-items: center; height: 25px;">
+        Learn More
+      </a>
+    </div>
   </section>
 
+  <!-- === About Section === -->
   <section class="about">
     <h2>About Bharatadarshana</h2>
-    <p>
-      Bharatadarshana is a digital initiative to present the spiritual and cultural wealth of India.
-    </p>
+    <p>Bharatadarshana is a digital initiative to present the spiritual and cultural wealth of India.</p>
   </section>
 
+  <!-- === Footer === -->
   <footer>
     &copy; 2025 Bharatadarshana. All rights reserved.
   </footer>
