@@ -45,6 +45,21 @@ nav {
   padding: 10px;
   text-align: center;
 }
+    @media (max-width: 600px) {
+  nav {
+    display: flex;
+    flex-direction: column; /* stack links vertically */
+    align-items: center;    /* center links */
+  }
+
+  nav a {
+    margin: 10px 0;         /* spacing between links */
+    width: 100%;            /* make buttons full-width or adjust */
+    box-sizing: border-box; /* include padding in width */
+    text-align: center;     /* center the text */
+  }
+
+
     .hero {
       background: #ffffff;
       padding: 60px 20px;
