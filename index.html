@@ -2,82 +2,199 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bharat Rising – India's Strength Unveiled</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-white text-gray-900 font-sans">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bharatadarshana</title>
+  <style>
+    /* Reset and base styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+      color: #111;
+    }
+    header {
+      background-color: #002366;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    nav ul li {
+      margin: 10px 15px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-  <!-- Navbar -->
-  <header class="bg-orange-600 text-white shadow">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <h1 class="text-2xl font-bold">🇮🇳 Bharat Rising</h1>
-      <nav class="space-x-4">
-        <a href="#" class="hover:underline">Home</a>
-        <a href="#topics" class="hover:underline">Topics</a>
-        <a href="#videos" class="hover:underline">Videos</a>
-        <a href="#blogs" class="hover:underline">Blogs</a>
-        <a href="#about" class="hover:underline">About</a>
-      </nav>
-    </div>
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      transition: all 0.5s ease-in-out;
+    }
+
+    #hero {
+      text-align: center;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/7/71/India_flag_waving.jpg') center/cover no-repeat;
+      color: white;
+      padding: 100px 20px;
+    }
+    #hero h1 {
+      font-size: 3rem;
+      background: rgba(0, 0, 0, 0.6);
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    .topic-card {
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+    }
+    .topic-card img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .topic-card h3 {
+      margin: 15px 0 10px;
+    }
+    .topic-card a {
+      color: #002366;
+      text-decoration: none;
+    }
+    .topic-card a:hover {
+      text-decoration: underline;
+    }
+
+    .video-embed iframe {
+      width: 100%;
+      height: 315px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    footer {
+      background: #002366;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      #hero h1 {
+        font-size: 2rem;
+      }
+      nav ul {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <h1>Bharatadarshana</h1>
+    <nav>
+      <ul>
+        <li><a href="#topics">Topics</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#blogs">Blogs</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <!-- Hero Section -->
-  <section class="bg-[url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/India_Gate_in_New_Delhi_03-2016_img3.jpg/1920px-India_Gate_in_New_Delhi_03-2016_img3.jpg')] bg-cover bg-center h-96 flex items-center justify-center text-white">
-    <div class="bg-black bg-opacity-50 p-6 rounded-lg text-center">
-      <h2 class="text-4xl font-bold mb-2">India's Global Rise</h2>
-      <p class="text-lg">Explore facts, expose lies, and celebrate Bharat's power under Modi's leadership.</p>
-    </div>
+  <section id="hero">
+    <h1>Showcasing Bharat's Global Vision & National Strength</h1>
   </section>
 
   <!-- Topics Section -->
-  <section id="topics" class="py-12 px-4 max-w-6xl mx-auto">
-    <h3 class="text-3xl font-bold text-center mb-8">Featured Topics</h3>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-orange-100 p-4 rounded shadow">
-        <h4 class="font-semibold text-lg mb-2">Modi's Foreign Policy</h4>
-        <p>How India is shaping global alliances, BRICS, and countering China.</p>
-      </div>
-      <div class="bg-orange-100 p-4 rounded shadow">
-        <h4 class="font-semibold text-lg mb-2">India vs Pakistan</h4>
-        <p>Historical truth, modern strategy, and facts the media won't show.</p>
-      </div>
-      <div class="bg-orange-100 p-4 rounded shadow">
-        <h4 class="font-semibold text-lg mb-2">Congress Exposed</h4>
-        <p>Explore the missteps: Emergency, appeasement, and corruption legacy.</p>
-      </div>
+  <section id="topics">
+    <h2>🇮🇳 Key Topics</h2>
+
+    <div class="topic-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Modi_G20.jpg" alt="India's Global Influence" />
+      <h3>India's Global Influence</h3>
+      <p>How Bharat is shaping geopolitics under strong leadership.</p>
+      <a href="https://www.youtube.com/watch?v=ZJiqfNyoqVk" target="_blank">Watch explainer</a>
+    </div>
+
+    <div class="topic-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Modi_speech.jpg" alt="Economic Growth" />
+      <h3>Economic Growth Under Modi</h3>
+      <p>Massive reforms & global trust in India’s economy.</p>
+      <a href="https://www.youtube.com/watch?v=evMFT34s9tM" target="_blank">Watch explainer</a>
+    </div>
+
+    <div class="topic-card">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/India-Pakistan_flag_border.jpg" alt="India-Pakistan Conflict" />
+      <h3>India-Pakistan Conflicts</h3>
+      <p>Explore India's brave stance in defending sovereignty.</p>
+      <a href="https://www.youtube.com/watch?v=rCbd2UoE8fY" target="_blank">Watch Operation Brief</a>
+    </div>
+
+    <!-- Add more cards here easily -->
+  </section>
+
+  <!-- Videos Section -->
+  <section id="videos">
+    <h2>📽️ Featured Videos</h2>
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/ZJiqfNyoqVk" allowfullscreen></iframe>
+    </div>
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/evMFT34s9tM" allowfullscreen></iframe>
     </div>
   </section>
 
-  <!-- Video Section -->
-  <section id="videos" class="py-12 bg-gray-100 px-4">
-    <h3 class="text-3xl font-bold text-center mb-6">Video Explainers</h3>
-    <div class="flex justify-center">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" 
-        title="YouTube video player" frameborder="0" allowfullscreen class="rounded shadow"></iframe>
-    </div>
+  <!-- Blogs Section -->
+  <section id="blogs">
+    <h2>📝 Blogs</h2>
+    <ul>
+      <li><a href="https://www.opindia.com/2023/10/india-global-ambitions-united-nations/" target="_blank">India's Rising Voice in the UN</a></li>
+      <li><a href="https://swarajyamag.com/world/turkey-erdogan-pakistan-support" target="_blank">Why Turkey Backs Pakistan & How India Responds</a></li>
+    </ul>
   </section>
 
-  <!-- Blog Section -->
-  <section id="blogs" class="py-12 px-4 max-w-6xl mx-auto">
-    <h3 class="text-3xl font-bold text-center mb-6">Latest Blogs</h3>
-    <div class="grid md:grid-cols-2 gap-6">
-      <div class="bg-white border p-4 rounded shadow">
-        <h4 class="text-xl font-semibold mb-2">Turkey's Anti-India Axis</h4>
-        <p>How Turkey aligns with Pakistan and undermines India internationally.</p>
-        <a href="#" class="text-orange-600 font-semibold mt-2 inline-block">Read More →</a>
-      </div>
-      <div class="bg-white border p-4 rounded shadow">
-        <h4 class="text-xl font-semibold mb-2">India's Economic Growth in 2025</h4>
-        <p>Modi government's initiatives like Make in India, PLI, UPI & beyond.</p>
-        <a href="#" class="text-orange-600 font-semibold mt-2 inline-block">Read More →</a>
-      </div>
-    </div>
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>📬 Contact Us</h2>
+    <p>Write to us at: <strong>bharatadarshana@protonmail.com</strong></p>
+    <p>Follow us on <a href="https://twitter.com/yourpage" target="_blank">Twitter</a> and <a href="https://instagram.com/yourpage" target="_blank">Instagram</a>.</p>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-orange-600 text-white text-center py-6 mt-12">
-    <p>&copy; 2025 Bharat Rising. Made with 🇮🇳 for India.</p>
+  <footer>
+    &copy; 2025 Bharatadarshana | Proudly made in 🇮🇳
   </footer>
 
 </body>
