@@ -46,18 +46,24 @@ nav {
   text-align: center;
 }
     @media (max-width: 600px) {
-  nav {
-    display: flex;
-    flex-direction: column; /* stack links vertically */
-    align-items: center;    /* center links */
-  }
-
   nav a {
-    margin: 10px 0;         /* spacing between links */
-    width: 100%;            /* make buttons full-width or adjust */
-    box-sizing: border-box; /* include padding in width */
-    text-align: center;     /* center the text */
+    font-size: 14px;
+    padding: 8px 16px;
   }
+}
+
+   nav {
+  display: flex;
+  flex-wrap: wrap;           /* Allow wrapping if needed */
+  justify-content: center;   /* Center horizontally */
+  gap: 10px;                 /* Space between buttons */
+}
+
+nav a {
+  white-space: nowrap;       /* Prevent text wrapping inside button */
+  font-size: 14px;           /* Slightly smaller font for mobile */
+  padding: 8px 16px;         /* Slightly smaller buttons */
+}
 
 
     .hero {
